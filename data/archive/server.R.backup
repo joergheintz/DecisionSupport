@@ -1,0 +1,31 @@
+library(shiny)
+library(ggplot2)
+
+shinyServer(function(input, output) {
+    options(shiny.trace=TRUE)
+# You can access the value of the widget with input$select, e.g.
+    output$splicingmodel <- renderPrint({ input$select })
+    output$splicingVariables <- renderPrint({ input$checkGroup })
+    
+    
+    output$mytable1 <- renderDataTable({
+           
+        inFile <- input$file1
+        if (is.null(inFile))
+            return(NULL)
+        mydata<<-reactive({read.csv(inFile$datapath)})
+       print(mydata)
+        
+        
+        # procedure logic
+        proin<-as.integer(input$procedure) # procedure:  for selecting rows and columns
+        metin<-as.integer(input$method) # method: for selecting rows and columns
+        #colsub<-c(proin, metin)
+        print(paste("proin= ", proin, "input$fields= ", input$fields))
+            mydata<-reactive({mydata[mydata[, proin+2] == 1 , input$fields, drop = FALSE]})
+            
+    })
+    
+    
+})
+

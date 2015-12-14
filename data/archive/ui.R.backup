@@ -1,0 +1,33 @@
+library(shiny)
+library(ggplot2)
+mydata<<-reactive({data.frame()})
+print("======= mydata <<-data.frame ========")
+
+    
+    shinyUI(fluidPage(theme = "bootstrap.css",
+    titlePanel( h2("simple software recommendation system", style = "color:#FFA500")),
+        sidebarLayout(position = "left",
+            sidebarPanel(
+                
+                
+                fileInput('file1', p('choose dataset', style="color:#FFA500"), accept=c('text/csv','text/comma-separated-values,text/plain','.csv')),
+                
+                
+            
+                   # selectInput("dataset", label =  p("choose a dataset:", style = "color:#FFA500"), choices = c("software_recommend_db_test")),
+                    selectInput("procedure", label =  p("procedure", style = "color:#FFA500"), choices = list("immunoprecipitation" = 1, "methylation" = 2, "splicing" = 3), selected = 3),
+                    selectInput("method", label =  p("method", style = "color:#FFA500"), choices = list("ChIP-seq" = 1, "RNA-seq" = 2, "HI-C" = 3), selected = 1),
+                    checkboxGroupInput('fields', label = p('select fields:', style = "color:#FFA500"), choices = names(mydata()), selected = names(mydata()))
+                   
+            ),
+            mainPanel(# Copy the line below to make a select box
+               
+               #dataTableOutput('mytable1')
+               div(dataTableOutput("mytable1"), style = "font-size:80%")
+            )
+        )
+)
+)
+
+
+
