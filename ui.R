@@ -1,4 +1,4 @@
-# Joerg heintz, October 12th 2015
+# Joerg heintz, joergheintz@gmail.com, October 12th 2015
 # simple software recommendation system
 
 # Variables:
@@ -76,7 +76,7 @@ shinyUI(fluidPage(theme = "bootstrap.css",
     
     fluidRow(
         column(3, wellPanel( 
-            h4("Controls"),offset = 0,  height = "300px",
+            h4("Controls"),offset = 0,
             # Standard Pipelines
             selectInput("selectpipe", "A) Pipeline", choices = pipechoices),
             # Pipeline Steps (Software choices)
@@ -90,7 +90,7 @@ shinyUI(fluidPage(theme = "bootstrap.css",
         )),
         column(3, wellPanel(
             h4('Software Paper Citation History'), offset = 0, 
-            plotOutput("papertrend", height = '300px')
+            plotOutput("papertrend", height = "254px")
         ))
         
                 

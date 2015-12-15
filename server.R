@@ -1,3 +1,7 @@
+# Joerg Heintz, joergheintz@gmail.com,  December 2015
+# simple software recommendation system
+
+
 library(shiny)
 
 # variables
@@ -12,7 +16,6 @@ library(shiny)
     n <- integer
     b <<- NULL
     s <<- NULL
-    asdfd <- integer
 
 # create standard pipeline
     grVizOutput('userp', width = "200px", height = "400px" )# pipelines
@@ -56,7 +59,7 @@ StandPipelines<- function(standnodes, nodecolor="#2980b9 "){
     reC <<- render_graph(StandardPipe)
 }
 
-###########################################################################################################################
+#####################################################
 
 userpipe <<- create_graph(
     graph_attrs = c("bgcolor = none"),
@@ -84,7 +87,7 @@ ncount <<- node_count(userpipe, type = FALSE)
     b<<- render_graph(userpipe)
  }
 
-#########################################################################################################################
+#####################################################
 
 shinyServer(function(input, output, session) {
     options(shiny.trace = TRUE)

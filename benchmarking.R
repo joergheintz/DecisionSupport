@@ -1,4 +1,4 @@
-# Joerg Heintz, 12. November 2015
+# Joerg Heintz, joergheintz@gmail.com, 12. November 2015
 # comparing / benchmarking software
 
 
